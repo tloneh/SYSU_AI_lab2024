@@ -1,26 +1,55 @@
+### 函数说明
 
-函数说明
-convert_str(sentence)
+#### `convert_str(sentence)`
+
 这个函数接收一个字符串列表，可能代表句子中的单词，并返回一个格式化后的字符串。每个单词之间用逗号分隔，整个字符串被包裹在括号内。注意，只有一个字符串输出时要在字符串后加一个逗号。
 
-Process_word(word)
+#### `Process_word(word)`
+
 此函数处理一个字符串，并返回三个值：谓词、术语列表和值（0 或 1）。
 
-如果单词以开头，则值为 0，并去掉。
-单词中的括号被替换为逗号。
-使用逗号分割单词，并返回谓词（第一个元素）和术语列表（中间的所有元素）。
-unifier(sentence1, sentence2, word1, word2, xigema)
+- 如果单词以~开头，则值为 0，并去掉~。
+- 单词中的括号被替换为逗号。
+- 使用逗号分割单词，并返回谓词（第一个元素）和术语列表（中间的所有元素）。
+
+#### `unifier(sentence1, sentence2, word1, word2, xigema)`
+
 此函数统一两个句子中谓词。它接受两个句子、两个要统一的谓词以及一个替换映射。
 
-首先找到 word1 和 word2 在各自句子中的位置，并用相应的字母替换它们。
-然后，从两个句子中删除这些单词。
-接下来，遍历每个句子的每个单词，处理该单词，并根据替换映射替换术语。
-最后，合并两个处理后的句子，并返回一个新的句子列表以及之前找到的单词的索引。
-Most_general_unifier(sentence1, sentence2)
+- 首先找到 word1 和 word2 在各自句子中的位置，并用相应的字母替换它们。
+- 然后，从两个句子中删除这些单词。
+- 接下来，遍历每个句子的每个单词，处理该单词，并根据替换映射替换术语。
+- 最后，合并两个处理后的句子，并返回一个新的句子列表以及之前找到的单词的索引。
+
+#### `Most_general_unifier(sentence1, sentence2)`
+
 此函数的目的是处理两个句子，使它们形成统一。处理过程包括替换特定的单词、对句子中的其他词项进行转换，并最终合并并去重处理后的句子。
 
-pre_process(KB_str)
+#### `pre_process(KB_str)`
+
 此函数对一个包含嵌套括号的字符串进行预处理，将其分解为多个独立的事实，并将这些事实以元组的形式存储在一个集合中。
 
-ResolutionFOL(KB_str)
+#### `ResolutionFOL(KB_str)`
+
 此函数是一个用于一阶逻辑消解推理过程的实现。其主要功能是根据输入的知识库字符串，通过预处理、消解推理和结果记录等步骤，最终返回消解推理的结果列表。
+
+### 函数定义
+
+```python
+def convert_str(sentence):
+    # 实现代码...
+
+def Process_word(word):
+    # 实现代码...
+
+def unifier(sentence1, sentence2, word1, word2, xigema):
+    # 实现代码...
+
+def Most_general_unifier(sentence1, sentence2):
+    # 实现代码...
+
+def pre_process(KB_str):
+    # 实现代码...
+
+def ResolutionFOL(KB_str):
+    # 实现代码...
