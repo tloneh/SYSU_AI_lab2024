@@ -4,7 +4,7 @@
 
 这个函数接收一个字符串列表，可能代表句子中的单词，并返回一个格式化后的字符串。每个单词之间用逗号分隔，整个字符串被包裹在括号内。注意，只有一个字符串输出时要在字符串后加一个逗号。
 
-#### `Process_word(word)`
+#### `ProcessStr(word)`
 
 此函数处理一个字符串，并返回三个值：谓词、术语列表和值（0 或 1）。
 
@@ -39,7 +39,7 @@
 def convert_str(sentence):
     # 实现代码...
 
-def Process_word(word):
+def ProcessStr(word):
     # 实现代码...
 
 def unifier(sentence1, sentence2, word1, word2, xigema):
