@@ -13,8 +13,6 @@ class GeneticAlgTSP:
 
         file = open(filename,"r")
         list = file.readlines() #每一行数据写入到list中
-        self.x1 = []
-        self.y1 = []
         self.citys = []
         for line in list:
             tmp = line.strip().split()
@@ -25,8 +23,6 @@ class GeneticAlgTSP:
             temp.append(float(tmp[1]))
             temp.append(float(tmp[2]))
             self.citys.append(temp)
-            self.x1.append(temp[1])
-            self.y1.append(temp[2])
             
         self.population = []
         lenth = len(self.citys)
@@ -72,7 +68,7 @@ class GeneticAlgTSP:
         s = 0
         for i in range (1,len(path)):
             s += self.distance(path[i-1], path[i])
-        # s += self.distance(1,path[len(path)-1])
+        s += self.distance(1,path[len(path)-1])
         return s 
 
     #交叉产生下一代
@@ -131,8 +127,8 @@ class GeneticAlgTSP:
         for var in self.population:
             if min > self.evaluate(var):
                 min = self.evaluate(var)
-            print(self.evaluate(var))
-            print(var)
+            # print(self.evaluate(var))
+            # print(var)
         print(f'种群最小路径：{min}')
         print("----------------------------------------")
         ims = []
@@ -192,6 +188,8 @@ class GeneticAlgTSP:
             if iteration%10==0:
                 x1=[]
                 y1=[]
+                x1.append(self.citys[0][1])
+                y1.append(self.citys[0][2])
                 for var in temp_one:
                     x1.append(self.citys[var-1][1])
                     y1.append(self.citys[var-1][2])
@@ -214,9 +212,13 @@ class GeneticAlgTSP:
         curr = self.population[flag]
         xo=[]
         yo=[]
+        xo.append(self.citys[0][1])
+        yo.append(self.citys[0][2])
         for var in curr:
             xo.append(self.citys[var-1][1])
             yo.append(self.citys[var-1][2])
+        xo.append(self.citys[0][1])
+        yo.append(self.citys[0][2])
         print(f'最短路径长度:{self.evaluate(curr)}')
         print(f'城市的访问次序：{curr}')
 
@@ -233,7 +235,3 @@ class GeneticAlgTSP:
         plt.show()
 
         print("End of all, and you got the best answer!")
-
-
-
-    
