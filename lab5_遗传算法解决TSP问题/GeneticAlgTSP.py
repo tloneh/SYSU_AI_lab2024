@@ -17,9 +17,9 @@ class GeneticAlgTSP:
         self.y1 = []
         self.citys = []
         for line in list:
-            if line == '' or line == 'EOF':
-                break
             tmp = line.strip().split()
+            if tmp == '' or tmp == 'EOF':
+                continue
             temp=[]
             temp.append(int(tmp[0]))
             temp.append(float(tmp[1]))
