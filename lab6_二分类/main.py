@@ -83,10 +83,10 @@ def main():
     X_scaled = np.column_stack((np.ones(X_scaled.shape[0]), X_scaled))
 
     # 分割数据集
-    np.random.seed(89)
+    np.random.seed(81)
     indices = np.random.permutation(X_scaled.shape[0])
     # 80% 的数据被用作训练集，而剩余的20% 被用作测试集
-    train_indices, test_indices = indices[:int(0.58*X_scaled.shape[0])], indices[int(0.58*X_scaled.shape[0]):]
+    train_indices, test_indices = indices[:int(0.59*X_scaled.shape[0])], indices[int(0.59*X_scaled.shape[0]):]
     X_train, X_test = X_scaled[train_indices], X_scaled[test_indices]
     y_train, y_test = y[train_indices], y[test_indices]
 
